@@ -66,7 +66,7 @@ feature 'restaurants' do
 
   context 'deleting restaurants' do
 
-  before { Restaurant.create name: 'KFC', description: 'Deep fried goodness' }
+  before { Restaurant.create name: 'KFC', description: 'Deep fried goodness', id: 1 }
 
   scenario 'removes a restaurant when a user clicks a delete link' do
     visit '/restaurants'
@@ -74,7 +74,7 @@ feature 'restaurants' do
     expect(page).not_to have_content 'KFC'
     expect(page).to have_content 'Restaurant deleted successfully'
   end
-  
+
 end
 
 end
