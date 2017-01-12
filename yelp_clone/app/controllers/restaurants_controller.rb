@@ -11,7 +11,7 @@ class RestaurantsController < ApplicationController
   end
 
   def create
-    @restaurant = Restaurant.new(restaurant_params, user_id: current_user.id)
+    @restaurant = Restaurant.new(restaurant_params)
     require 'pry' ; binding.pry
     if @restaurant.save
       redirect_to restaurants_path

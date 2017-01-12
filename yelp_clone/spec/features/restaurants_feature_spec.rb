@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'web_helper'
 
 feature 'restaurants' do
 
@@ -20,7 +21,7 @@ feature 'restaurants' do
    scenario 'display restuarants' do
      visit '/restaurants'
      expect(page).to have_content("KFC")
-     expect(page).not_to have_content ('No restaurants yet')
+     expect(page).not_to have_scontent ('No restaurants yet')
     end
   end
 
