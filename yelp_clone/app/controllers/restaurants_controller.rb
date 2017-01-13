@@ -4,6 +4,7 @@ class RestaurantsController < ApplicationController
 
   def index
    @restaurants = Restaurant.all
+  #  this command sets the variable to all restaurants in the database
   end
 
   def new
@@ -11,15 +12,13 @@ class RestaurantsController < ApplicationController
   end
 
   def create
-    @user = User.find(current_user.id)
-    @user.restaurants.create(restaurant_params)
-    redirect_to restaurants_path
-    # @restaurant = Restaurant.new(restaurant_params)
-    # if @restaurant.save
-    #   redirect_to restaurants_path
-    # else
-    #   render 'new'
-    # end
+    user = User.find(current_user.id)
+    @restaurant = user.restaurants.new(restaurant_params)
+    if @restaurant.save
+      redirect_to restaurants_path
+    else
+      render 'new'
+    end
   end
 
   def show

@@ -9,8 +9,10 @@ it 'is not valid with a name of less than three characters' do
   end
 
   it "is not valid unless it has a unique name" do
-    Restaurant.create(name: "Moe's Tavern")
-    restaurant = Restaurant.new(name: "Moe's Tavern")
+    user = User.create( email: "test@test.com", password: "abcd1234")
+    Restaurant.create( name: "Moe's Tavern", user_id: user.id )
+    restaurant = Restaurant.new( name: "Moe's Tavern", user_id: user.id )
+    p restaurant.errors.full_messages
     expect(restaurant).to have(1).error_on(:name)
   end
 end
