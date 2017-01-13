@@ -15,4 +15,8 @@ it 'is not valid with a name of less than three characters' do
     p restaurant.errors.full_messages
     expect(restaurant).to have(1).error_on(:name)
   end
+
+  it { is_expected.to belong_to :user }
+
+
 end
