@@ -4,7 +4,6 @@ class RestaurantsController < ApplicationController
 
   def index
    @restaurants = Restaurant.all
-  #  this command sets the variable to all restaurants in the database
   end
 
   def new
@@ -30,7 +29,6 @@ class RestaurantsController < ApplicationController
   end
 
   def update
-    p params
     @restaurant = Restaurant.find(params[:id])
     @restaurant.update(restaurant_params)
 
